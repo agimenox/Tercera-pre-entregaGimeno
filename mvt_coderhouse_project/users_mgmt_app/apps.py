@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MvtShowUsersAppConfig(AppConfig):
+class UsersMgmtAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mvt_show_users_app'
+    name = 'users_mgmt_app'
