@@ -19,5 +19,6 @@ from users_mgmt_app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('list_users/', include('users_mgmt_app.urls')),
+    path('home/', include('users_mgmt_app.urls')),
+
 ]
