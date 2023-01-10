@@ -16,3 +16,7 @@ def list_users(request):
 def home_page(request):
 
     return render(request=request, template_name='home.html',) 
+
+def under_construction(request):
+
+    return render(request=request, template_name='under_construction.html',) 
