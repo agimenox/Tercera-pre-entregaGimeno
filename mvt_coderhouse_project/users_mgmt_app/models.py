@@ -14,4 +14,14 @@ class Member(models.Model):
         return f"{self.first_name}, {self.last_name}"
 
 class Client(models.Model):
+    client_name = models.CharField(max_length=100)
+    client_email = models.CharField(max_length=100)
+    client_phone = models.CharField(max_length=100)
     pass
+
+class Group(models.Model):
+    group_name = models.CharField(max_length=50)
+    group_description = models.CharField(max_length=200)
+    foreing_key = models.CharField(max_length=1)
+    pass
+
