@@ -1,0 +1,12 @@
+{% extends "group.html" %}
+{% block table %}
+<h1>Groups Panel</h1>
+<ul>
+{% for group in groups %}
+<tr>
+  <td>{{ group.group_name }}</td>
+  <td>{{ group.group_description }}</td>
+</tr>
+{% endfor %}
+</ul>
+{% endblock table %}

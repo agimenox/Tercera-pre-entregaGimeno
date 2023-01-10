@@ -60,13 +60,24 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{% url 'home_page' %}">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-stream"></i>
                     <span>Home</span>
                 </a>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{% url 'list_users' %}">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Users Management</span>
+                    <i class="fas fa-user"></i>
+                    <span>Users</span>
+                </a>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'list_clients' %}">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>Clients</span>
+                </a>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'list_groups' %}">
+                    <i class="fas fa-tags"></i>
+                    <span>Groups</span>
                 </a>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -112,9 +123,6 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">

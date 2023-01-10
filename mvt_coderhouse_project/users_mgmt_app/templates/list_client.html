@@ -1,0 +1,15 @@
+{% extends "client.html" %}
+
+{% block table %}
+<h1>Client Panel</h1>
+<ul>
+{% for client in clients %}
+<tr>
+  <td>{{ client.client_name }}</td>
+  <td>{{ client.client_email }}</td>
+  <td>{{ client.client_phone }}</td>
+  <td>{{ client.client_address }}</td>
+</tr>
+{% endfor %}
+</ul>
+{% endblock table %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from users_mgmt_app.models import Member
+from users_mgmt_app.models import Member, Client, Group
 
 # Create your views here.
 
@@ -19,4 +19,24 @@ def home_page(request):
 
 def under_construction(request):
 
-    return render(request=request, template_name='under_construction.html',) 
+    return render(request=request, template_name='under_construction.html',)
+
+def list_clients(request):
+    cntxt = {
+        'clients': Client.objects.all()
+    }
+    return render(
+        request=request,
+        template_name='list_client.html',
+        context=cntxt,
+    )
+
+def list_groups(request):
+    cntxt = {
+        'groups': Group.objects.all()
+    }
+    return render(
+        request=request,
+        template_name='list_groups.html',
+        context=cntxt,
+    )  
