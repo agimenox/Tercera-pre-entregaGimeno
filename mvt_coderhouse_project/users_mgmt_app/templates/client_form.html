@@ -1,0 +1,10 @@
+{% extends "client.html" %}
+
+New Client
+{% block content %}
+<form action="{% url 'new_client' %}" method="post">
+  {% csrf_token %}
+  {{ new_form.as_p }}
+  <input type="submit" value="Enviar" />
+</form>
+{% endblock content %}
