@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from users_mgmt_app.models import Member, Client, Group
 from django.urls import reverse
 from users_mgmt_app.forms import ClientForm
+from django.db.models import Q
 
 
 # Create your views here.
@@ -60,3 +61,16 @@ def new_client(request):
         template_name='client_form.html',
         context={'new_form': new_form},
     )
+
+def search_clients(request):
+    if request.method == "POST":
+        data = request.POST
+        searchs_result = Client.objects.filter(client_name__contains=data['name_to_search'])
+        context = {
+            'clients': searchs_result
+        }
+        return render(
+            request=request,
+            template_name='list_client.html',
+            context=context,
+        )
