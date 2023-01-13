@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from users_mgmt_app.models import Member, Client, Group
 from django.urls import reverse
-from users_mgmt_app.forms import ClientForm
+from users_mgmt_app.forms import ClientForm, GroupForm
 from django.db.models import Q
 
 
@@ -74,3 +74,24 @@ def search_clients(request):
             template_name='list_client.html',
             context=context,
         )
+
+
+def new_group(request):
+    if request.method == "POST":
+        new_form = GroupForm(request.POST)
+        if new_form.is_valid():
+            data = new_form.cleaned_data
+            new_group = Group(
+                group_name=data['group_name'],
+                group_description=data['group_description'],
+                )
+            new_group.save()
+            sucess_url = reverse('list_groups')
+            return redirect(sucess_url)
+    else:  # GET
+        new_form = GroupForm()
+    return render(
+        request=request,
+        template_name='group_form.html',
+        context={'new_form': new_form},
+    )
