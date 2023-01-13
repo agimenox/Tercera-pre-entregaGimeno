@@ -9,6 +9,8 @@ urlpatterns = [
     path('list-clients/', views.list_clients, name='list_clients'),
     path('list-groups/', views.list_groups, name='list_groups'),
     path('new-client/', views.new_client, name='new_client'),
-    path('search-clients/', views.search_clients, name='search_clients')
+    path('search-clients/', views.search_clients, name='search_clients'),
+    path('new-group/', views.new_group, name='new_group'),
+    path('search-group/', views.search_groups, name='search_groups'),
     
 ]

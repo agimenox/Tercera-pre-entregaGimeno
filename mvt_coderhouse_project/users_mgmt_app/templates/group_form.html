@@ -4,7 +4,7 @@ New Group
 {% block content %}
 <center><h2><strong>Fill the fields</strong></h2><br><br>
 
-<form action="{% url 'new_client' %}" method="post">
+<form action="{% url 'new_group' %}" method="post">
   {% csrf_token %}
   {{ new_form.as_p }}
   <input type="submit" value="Register" />

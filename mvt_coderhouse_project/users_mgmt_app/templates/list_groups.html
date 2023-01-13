@@ -1,12 +1,49 @@
 {% extends "group.html" %}
-{% block table %}
+{% block content %}
 <h1>Groups Panel</h1>
-<ul>
-{% for group in groups %}
-<tr>
-  <td>{{ group.group_name }}</td>
-  <td>{{ group.group_description }}</td>
-</tr>
-{% endfor %}
-</ul>
-{% endblock table %}
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+      <a href="{% url 'new_group' %}" class="m-0 font-weight-bold text-primary">ADD New Group</a>
+        <form action="{% url 'search_groups' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="name_to_search">          
+          <input type="submit" value="Search">
+        </form>
+    <br>
+  </div>
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                  <tr>
+                      <th>Group Name</th>
+                      <th>Group Description</th>
+                  </tr>
+              </thead>
+              <tfoot>
+                  <tr>
+                      <th>Group Name</th>
+                      <th>Group Description</th>
+                  </tr>
+              </tfoot>
+              <tbody>
+                <ul>
+                {% for group in groups %}
+                <tr>
+                  <td>{{ group.group_name }}</td>
+                  <td>{{ group.group_description }}</td>
+                </tr>
+                {% endfor %}
+                </ul>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+{% endblock content %}

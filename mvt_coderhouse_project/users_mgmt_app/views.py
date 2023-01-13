@@ -95,3 +95,16 @@ def new_group(request):
         template_name='group_form.html',
         context={'new_form': new_form},
     )
+
+def search_groups(request):
+    if request.method == "POST":
+        data = request.POST
+        searchs_result = Group.objects.filter(group_name__contains=data['name_to_search'])
+        context = {
+            'groups': searchs_result
+        }
+        return render(
+            request=request,
+            template_name='list_groups.html',
+            context=context,
+        )

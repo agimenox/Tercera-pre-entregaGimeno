@@ -13,8 +13,8 @@ class GroupForm(forms.Form):
 class MemberForm(forms.Form):
     first_name= forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
-    birth_date = forms.DateField(null=True)
+    birth_date = forms.DateField(required=True)
     gender = forms.CharField(max_length=1)
-    email = forms.EmailField(max_length=20,null=True)
-    preferr_number = forms.IntegerField(null=True)
+    email = forms.EmailField(max_length=20,required=True)
+    preferr_number = forms.IntegerField(required=False)
     preferr_color = forms.CharField(max_length=10,required=True)
