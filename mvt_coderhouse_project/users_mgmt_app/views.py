@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
-from users_mgmt_app.models import Member, Client, Group
+from users_mgmt_app.models import Client, Group, User
 from django.urls import reverse
-from users_mgmt_app.forms import ClientForm, GroupForm
-from django.db.models import Q
+from users_mgmt_app.forms import ClientForm, GroupForm, UserForm
 
 
 # Create your views here.
 
 def list_users(request):
     cntxt = {
-        'users': Member.objects.all()
+        'users': User.objects.all()
     }
     return render(
         request=request,
@@ -106,5 +105,36 @@ def search_groups(request):
         return render(
             request=request,
             template_name='list_groups.html',
+            context=context,
+        )
+
+
+def new_user(request):
+    if request.method == "POST":
+        new_form = UserForm(request.POST)
+        if new_form.is_valid():
+            data = new_form.cleaned_data
+            new_user = User(first_name=data['first_name'],last_name=data['last_name'],birth_date=data['birth_date'],gender=data['gender'],email=data['email'],preferr_number=data['preferr_number'],preferr_color=data['preferr_color'])
+            new_user.save()
+            sucess_url = reverse('list_users')
+            return redirect(sucess_url)
+    else:  # GET
+        new_form = UserForm()
+    return render(
+        request=request,
+        template_name='user_form.html',
+        context={'new_form': new_form},
+    )
+
+def search_users(request):
+    if request.method == "POST":
+        data = request.POST
+        searchs_result = User.objects.filter(first_name__contains=data['name_to_search'])
+        context = {
+            'users': searchs_result
+        }
+        return render(
+            request=request,
+            template_name='list_users.html',
             context=context,
         )

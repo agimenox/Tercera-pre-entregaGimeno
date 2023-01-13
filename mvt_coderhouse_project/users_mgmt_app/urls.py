@@ -12,5 +12,7 @@ urlpatterns = [
     path('search-clients/', views.search_clients, name='search_clients'),
     path('new-group/', views.new_group, name='new_group'),
     path('search-group/', views.search_groups, name='search_groups'),
+    path('new-user/', views.new_user, name='new_user'),
+    path('search-user/', views.search_users, name='search_users'),
     
 ]
