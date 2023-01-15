@@ -1,8 +1,11 @@
 HOLA CODER TUTOR!!!! 
 ------------------------------------------------------
-    Resumen: El proyecto posee una aplicacion. donde se manejan los modelos/clases de "Clients, Groups, Users"
-    La barra de navegacion se encuentra del lado izquierdo para interactuar con la data de cada uno.
-    Se puede consultar, Filtrar y agregar datos.
+    Descripción: El proyecto posee una aplicacion. que maneja los modelos/clases de "Clients, Groups, Users". aplicando django web como framework y formularios.
+    
+    Para probar/interactuar con el programa, contara con una barra de navegacion del lado izquierdo de la pantalla con las 3 clases. "CLIENT, USERS, GROUPS".
+    
+    Cada opcion lo llevara al panel correspondiente donde podra agregar otro registro con la opcion "ADD New..." y tambien podra consultar/filtrar utilizando el campo de texto.
+    
 
     NOTA: El formato de la fecha en los formularios debe ser:  yyyy-mm-dd   Ej:   2023-01-13
 ------------------------------------------------------
@@ -37,8 +40,8 @@ CREDENCIALES
 
 Administration Panel:
 
-codertutor
-CoderCoder123
+User: codertutor
+Pass: CoderCoder123
 
 ------------------------------------------------------
 ESTRUCTURA
