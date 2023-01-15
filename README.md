@@ -9,13 +9,13 @@ HOLA CODER TUTOR!!!!
 
 REQUERIMIENTOS
 
-pip install
-
     asgiref==3.6.0
     Django==4.1.5
     sqlparse==0.4.3
     tzdata==2022.7
-
+    
+    Puede ejecutar $ py install requeriments.txt
+    requeriments.txt se encuentra dentro del proyecto.
 ------------------------------------------------------
 URLs
 
