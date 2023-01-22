@@ -14,5 +14,6 @@ urlpatterns = [
     path('search-group/', views.search_groups, name='search_groups'),
     path('new-user/', views.new_user, name='new_user'),
     path('search-user/', views.search_users, name='search_users'),
+    path('show-user-data/<int:id>', views.show_user_data, name='show_user_data'),
     
 ]

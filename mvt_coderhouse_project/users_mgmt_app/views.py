@@ -138,3 +138,14 @@ def search_users(request):
             template_name='list_users.html',
             context=context,
         )
+    
+def show_user_data(request, id):
+    user = User.objects.get(id=id)
+    context = {
+        'user': user
+    }
+    return render(
+        request=request,
+        template_name='show_user_data.html',
+        context=context,
+    )

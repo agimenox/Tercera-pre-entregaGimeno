@@ -1,0 +1,23 @@
+{% extends "users.html" %}
+
+
+{% block users %}
+<h4>{{user.first_name}}</h4>
+<h4>{{user.first_name}}</h4>
+<span>
+  <b>Birth Date:</b> {{user.birth_date}}
+</span>
+<br>
+<span>
+  <b>Email:</b> {{user.email}}
+</span>
+<br>
+<span>
+  <b>Gender:</b> {{user.gender}}
+</span>
+
+<br><br>
+
+<a href="{% url 'list_users' %}">Back</a>
+
+{% endblock users %}
