@@ -8,14 +8,18 @@ HOLA CODER TUTOR!!!!
 ------------------------------------------------------
 
 REQUERIMIENTOS
-
-    asgiref==3.6.0
-    Django==4.1.5
-    sqlparse==0.4.3
-    tzdata==2022.7
     
-    Puede ejecutar $ py install requeriments.txt
-    requeriments.txt se encuentra dentro del proyecto.
+    Es necesario  dentro del entorno virtualle ejecucion de: 
+    
+    $ py install requeriments.txt 
+    
+        Detalle de los paquetes:
+        asgiref==3.6.0
+        Django==4.1.5
+        sqlparse==0.4.3
+        tzdata==2022.7
+   
+ 
 ------------------------------------------------------
 URLs
 
