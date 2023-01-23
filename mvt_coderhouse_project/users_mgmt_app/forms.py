@@ -18,3 +18,5 @@ class UserForm(forms.Form):
     email = forms.EmailField(max_length=20,required=True)
     preferr_number = forms.IntegerField(required=False)
     preferr_color = forms.CharField(max_length=10,required=True)
+
+

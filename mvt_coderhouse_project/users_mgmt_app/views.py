@@ -149,3 +149,42 @@ def show_user_data(request, id):
         template_name='show_user_data.html',
         context=context,
     )
+
+
+
+
+def edit_user_data(request, id):
+    user = User.objects.get(id=id)
+    if request.method == "POST":
+        form = UserForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
+            user.birth_date = data['birth_date']
+            user.gender = data['gender']
+            user.email = data['email']
+            user.preferr_number = data['preferr_number']
+            user.preferr_color = data['preferr_color']
+            user.save()
+            sucess_url = reverse('list_users')
+            return redirect(sucess_url)
+    else:  # GET
+        inicial = {
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'birth_date': user.birth_date,
+            'gender': user.gender,
+            'email': user.email,
+            'preferr_number': user.preferr_number,
+            'preferr_color': user.preferr_color,
+        }
+        form = UserForm(initial=inicial)
+    return render(
+        request=request,
+        template_name='edit_user.html',
+        context={'form': form},
+    )
+
+
