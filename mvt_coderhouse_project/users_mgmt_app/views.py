@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from users_mgmt_app.models import Client, Group, User
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from users_mgmt_app.forms import ClientForm, GroupForm, UserForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -199,3 +200,25 @@ def delete_user(request, id):
 class GroupListView(ListView):
     model = Group
     template_name = 'list_groups2.html'
+
+class GroupDetailView(DetailView):
+    model = Group
+    success_url = reverse_lazy('list_groups2')
+    template_name = "detail_groups2.html"
+
+class GroupCreateView(CreateView):
+    model = Group
+    fields = ['group_name', 'group_description',]
+    success_url = reverse_lazy('list_groups2')
+    template_name = "create_group2.html"
+
+class GroupUpdateView( UpdateView):
+    model = Group
+    fields = ['group_name', 'group_description',]
+    success_url = reverse_lazy('list_groups2')
+    template_name = "edit_group2.html"
+
+class GroupDeleteView(DeleteView):
+    model = Group
+    success_url = reverse_lazy('list_groups2')
+    template_name = "confirm_group_elimination.html"

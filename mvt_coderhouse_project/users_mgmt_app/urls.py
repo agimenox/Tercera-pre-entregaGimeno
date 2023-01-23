@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import GroupListView
+from .views import GroupListView, GroupDetailView,GroupCreateView, GroupUpdateView, GroupDeleteView
 
 urlpatterns = [
 
@@ -19,5 +19,9 @@ urlpatterns = [
     path('edit-user-data/<int:id>', views.edit_user_data, name='edit_user_data'),
     path('delete-user/<int:id>', views.delete_user, name='delete_user'),
     path('list-groups2/', GroupListView.as_view(), name="list_groups2"),
+    path('detail-group2/<int:pk>/', GroupDetailView.as_view(), name="detail_group"),
+    path('create-group2/', GroupCreateView.as_view(), name="create_group"),
+    path('edit-group2/<int:pk>/', GroupUpdateView.as_view(), name="edit_group"),
+    path('delete-group2/<int:pk>/', GroupDeleteView.as_view(), name="delete_group"),
          
 ]

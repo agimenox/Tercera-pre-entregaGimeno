@@ -1,0 +1,10 @@
+{% extends "group.html" %}
+
+{% block content %}
+
+
+<h4><strong>Group Name: </strong> {{object.group_name}}, <br> <strong>Group Description: </strong> {{object.group_description}}</h4>
+<br>
+<a href="{% url 'list_groups2' %}">Back</a>
+
+{% endblock content %}

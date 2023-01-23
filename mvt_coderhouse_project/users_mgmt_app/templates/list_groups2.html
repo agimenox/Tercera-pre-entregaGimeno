@@ -1,9 +1,10 @@
 {% extends "group.html" %}
 {% block content %}
 <h1>Groups Panel</h1>
+<h4>This is a list view with class based views</h4>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-      <a href="{% url 'new_group' %}" class="m-0 font-weight-bold text-primary">ADD New Group</a>
+      <a href="{% url 'create_group' %}" class="m-0 font-weight-bold text-primary">ADD New Group</a>
         <form action="{% url 'search_groups' %}" method="post">
           {% csrf_token %}
           <input type="text" name="name_to_search">          
@@ -32,6 +33,11 @@
                 <tr>
                   <td>{{ group.group_name }}</td>
                   <td>{{ group.group_description }}</td>
+                  <td>
+                    <a href="{% url 'detail_group' group.id %}">Details</a>
+                    <a href="{% url 'edit_group' group.id %}">Edit</a>
+                    <a href="{% url 'delete_group' group.id %}">Delete</a>
+                  </td>
                 </tr>
                 {% endfor %}
                 </ul>
