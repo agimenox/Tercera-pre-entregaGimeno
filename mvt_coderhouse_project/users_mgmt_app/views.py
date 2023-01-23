@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from users_mgmt_app.models import Client, Group, User
 from django.urls import reverse
 from users_mgmt_app.forms import ClientForm, GroupForm, UserForm
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 
 # Create your views here.
@@ -193,3 +194,8 @@ def delete_user(request, id):
         user_to_delete.delete()
         sucess_url = reverse('list_users')
         return redirect(sucess_url)
+
+
+class GroupListView(ListView):
+    model = Group
+    template_name = 'list_groups2.html'
