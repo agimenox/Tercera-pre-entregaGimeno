@@ -187,4 +187,9 @@ def edit_user_data(request, id):
         context={'form': form},
     )
 
-
+def delete_user(request, id):
+    user_to_delete = User.objects.get(id=id)
+    if request.method == "POST":
+        user_to_delete.delete()
+        sucess_url = reverse('list_users')
+        return redirect(sucess_url)

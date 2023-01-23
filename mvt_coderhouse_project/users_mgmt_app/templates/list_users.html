@@ -37,8 +37,12 @@
                     <td>{{ user.first_name }}</td>
                     <td>{{ user.last_name }}</td>
                     <td>
-                      <a href="{% url 'show_user_data' user.id %}">Ver</a>
-                      <a href="{% url 'edit_user_data' user.id %}">Editar</a>
+                      <a href="{% url 'show_user_data' user.id %}">Inspect</a>
+                      <a href="{% url 'edit_user_data' user.id %}">Edit</a>
+                      <form action="{% url 'delete_user' user.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete"/>
+                      </form
                     </td>
 
                   </tr>
